@@ -4,6 +4,8 @@ export const CartItemContainer = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 15px;
+  flex-direction: column;
+  flex-wrap: wrap;
 
   p {
     color: #222222;
@@ -13,7 +15,7 @@ export const CartItemContainer = styled.div`
 export const CartItemImage = styled.div`
   background-image: ${(props) => `url('${props.imageUrl}')`};
   height: 250px;
-  width: 170px;
+  width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -24,8 +26,9 @@ export const CartItemImage = styled.div`
 
 export const CartItemInfo = styled.div`
   display: flex;
-  flex-direction: column;
-  margin-left: 20px;
+  justify-content: space-between;
+  margin-top: 10px;
+  width: 100%;
   flex: 1;
 
   p:nth-child(1) {
@@ -38,10 +41,20 @@ export const CartItemInfo = styled.div`
   }
 `;
 
+export const CardProfuctInfo = styled.div``;
+
+export const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+`;
 export const CartItemQuantity = styled.div`
+  padding: 4px 10px;
   display: flex;
   align-items: center;
-  margin-top: 10px;
+  border: 1px solid gray;
+  border-radius: 4px;
 
   p {
     margin-left: 10px;
@@ -50,13 +63,16 @@ export const CartItemQuantity = styled.div`
 
   svg:hover {
     cursor: pointer;
+    opacity: 0.7;
   }
 `;
 
 export const RemoveButton = styled.div`
-  margin-right: 20px;
+  display: flex;
+  color: blue;
 
   &:hover {
     cursor: pointer;
+    opacity: 0.7;
   }
 `;
