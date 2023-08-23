@@ -1,21 +1,35 @@
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 import Cart from "../cart/index";
 
 import * as S from "./styles";
 import { BsCartPlusFill } from "react-icons/bs";
 import { FiLogOut } from "react-icons/fi";
+import { loginUser, logoutUser } from "../../redux/user/actions";
+
 function Header() {
+  const { currentUser } = useSelector((rootReducer) => rootReducer.userReducer);
   const [cartIsVisible, setCartIsVisible] = useState(false);
+  const dispatch = useDispatch();
 
   const handleCartClick = () => {
     setCartIsVisible(!cartIsVisible);
   };
 
-  const handleLoginClick = () => {};
+  const handleLoginClick = () => {
+    dispatch(
+      loginUser({
+        name: "Rafael",
+        email: "rafael@gmail.com",
+      })
+    );
+  };
 
-  const handleLogoutClick = () => {};
-  const currentUser = false;
+  const handleLogoutClick = () => {
+    dispatch(logoutUser());
+  };
+
   return (
     <S.Container>
       <S.Logo>Lojinha</S.Logo>
