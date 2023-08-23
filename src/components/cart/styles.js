@@ -25,6 +25,8 @@ export const CartEscapeArea = styled.div`
 `;
 
 export const CartContent = styled.div`
+  display: flex;
+  justify-content: space-between;
   height: 100%;
   min-width: 500px;
   z-index: 200;
@@ -46,3 +48,4 @@ export const CartTotal = styled.p`
   font-size: 1.125rem;
   margin-bottom: 15px;
 `;
+export const ModalClose = styled.div``;

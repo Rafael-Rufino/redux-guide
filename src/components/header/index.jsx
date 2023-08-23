@@ -8,12 +8,14 @@ import { FiLogOut } from "react-icons/fi";
 function Header() {
   const [cartIsVisible, setCartIsVisible] = useState(false);
 
-  const handleCartClick = () => {};
+  const handleCartClick = () => {
+    setCartIsVisible(!cartIsVisible);
+  };
 
   const handleLoginClick = () => {};
 
   const handleLogoutClick = () => {};
-  const currentUser = true;
+  const currentUser = false;
   return (
     <S.Container>
       <S.Logo>Lojinha</S.Logo>

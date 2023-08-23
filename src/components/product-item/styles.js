@@ -30,6 +30,7 @@ export const ProductInfo = styled.div`
 export const ProductImage = styled.div`
   background-image: ${(props) => `url('${props.imageUrl}')`};
   height: 380px;
+
   width: 300px;
   background-size: cover;
   background-repeat: no-repeat;
