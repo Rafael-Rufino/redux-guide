@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+interface CartItemProps {
+  imageUrl: string;
+}
+
 export const CartItemContainer = styled.div`
   display: flex;
   align-items: center;
@@ -12,7 +16,7 @@ export const CartItemContainer = styled.div`
   }
 `;
 
-export const CartItemImage = styled.div`
+export const CartItemImage = styled.div<CartItemProps>`
   background-image: ${(props) => `url('${props.imageUrl}')`};
   height: 250px;
   width: 100%;
@@ -38,6 +42,14 @@ export const CartItemInfo = styled.div`
 
   p:nth-child(2) {
     font-weight: 500;
+  }
+
+  > svg {
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      cursor: pointer;
+      opacity: 0.8;
+    }
   }
 `;
 

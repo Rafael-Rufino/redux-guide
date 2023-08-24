@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
-export const CartContainer = styled.div`
+interface CartContainerProps {
+  isVisible: boolean;
+}
+
+export const CartContainer = styled.div<CartContainerProps>`
   position: fixed;
   height: 100vh;
   width: 100vw;
@@ -64,4 +68,11 @@ export const ModalClose = styled.div`
       color: red;
     }
   }
+`;
+export const CardProductTotalPrice = styled.div``;
+
+export const TotalValue = styled.p`
+  font-weight: 600;
+  font: 1.125rem;
+  color: #222222;
 `;

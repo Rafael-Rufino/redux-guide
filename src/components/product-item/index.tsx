@@ -4,14 +4,20 @@ import { useDispatch } from "react-redux";
 import CustomButton from "../custom-button/index";
 
 import * as S from "./styles";
-import { addProductToCart } from "../../redux/cart/actions";
+import { addProductToCart } from "../../redux/cart/slice";
+import { ProductTypes } from "../../data/products";
 
-const ProductItem = ({ product }) => {
+interface ProductItemProps {
+  product: ProductTypes;
+}
+
+const ProductItem = ({ product }: ProductItemProps) => {
   const dispatch = useDispatch();
 
   const handleProductToCartClick = () => {
     dispatch(addProductToCart(product));
   };
+
   return (
     <S.ProductContainer>
       <S.ProductImage imageUrl={product.imageUrl}>

@@ -4,6 +4,13 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+`;
+
+export const Products = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   gap: 40px;
   min-height: 100vh;
@@ -16,3 +23,5 @@ export const Container = styled.div`
     grid-template-columns: repeat(1, 1fr);
   }
 `;
+
+export const Pagination = styled.div``;

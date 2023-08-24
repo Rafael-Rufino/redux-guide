@@ -1,21 +1,31 @@
 import { useState } from "react";
+
+import * as S from "./styles";
+
 import { useSelector, useDispatch } from "react-redux";
+import { loginUser, logoutUser } from "../../redux/user/actions";
+import { selectCartProducts } from "../../redux/cart/cart.selectors";
+
+import { BsCartPlusFill } from "react-icons/bs";
+import { FiLogOut } from "react-icons/fi";
 
 import Cart from "../cart/index";
 
-import * as S from "./styles";
-import { BsCartPlusFill } from "react-icons/bs";
-import { FiLogOut } from "react-icons/fi";
-import { loginUser, logoutUser } from "../../redux/user/actions";
+import useWindowDimensions from "../../hooks";
 
 function Header() {
-  const { currentUser } = useSelector((rootReducer) => rootReducer.userReducer);
+  const { isMobile } = useWindowDimensions();
+  const { currentUser } = useSelector(
+    (rootReducer: any) => rootReducer.userReducer
+  ) as any;
   const [cartIsVisible, setCartIsVisible] = useState(false);
   const dispatch = useDispatch();
 
   const handleCartClick = () => {
     setCartIsVisible(!cartIsVisible);
   };
+
+  const productCount = useSelector(selectCartProducts);
 
   const handleLoginClick = () => {
     dispatch(
@@ -32,7 +42,10 @@ function Header() {
 
   return (
     <S.Container>
-      <S.Logo>Lojinha</S.Logo>
+      <S.Logo>
+        <a href="/">Lojinha </a>
+      </S.Logo>
+
       <S.Buttons>
         {currentUser ? (
           <div onClick={handleLogoutClick}>
@@ -44,8 +57,7 @@ function Header() {
         )}
 
         <div onClick={handleCartClick}>
-          {" "}
-          <BsCartPlusFill /> Carrinho [{1}]
+          <BsCartPlusFill /> {!isMobile && " Carrinho "} [{productCount}]
         </div>
       </S.Buttons>
 

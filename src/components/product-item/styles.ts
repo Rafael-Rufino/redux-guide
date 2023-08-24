@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+interface ProductImageProps {
+  imageUrl: string;
+}
+
 export const ProductContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -27,7 +31,7 @@ export const ProductInfo = styled.div`
   }
 `;
 
-export const ProductImage = styled.div`
+export const ProductImage = styled.div<ProductImageProps>`
   background-image: ${(props) => `url('${props.imageUrl}')`};
   height: 380px;
 

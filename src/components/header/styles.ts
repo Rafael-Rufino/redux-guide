@@ -14,6 +14,18 @@ export const Container = styled.div`
 export const Logo = styled.div`
   font-size: 1.25rem;
   font-weight: bold;
+
+  a {
+    text-decoration: none;
+    color: green;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
 `;
 
 export const Buttons = styled.div`
