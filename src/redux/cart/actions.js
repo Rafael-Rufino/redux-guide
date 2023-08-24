@@ -18,9 +18,15 @@ const removeProduct = (payload) => ({
   payload,
 });
 
+const changePage = (payload) => ({
+  type: "cart/changePage",
+  payload,
+});
+
 export {
   addProductToCart,
   increaseProductQuantity,
   decreaseProductQuantity,
   removeProduct,
+  changePage,
 };

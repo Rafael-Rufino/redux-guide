@@ -2,6 +2,7 @@ import CartActionTypes from "./action-types";
 
 const initialState = {
   products: [],
+  currentPage: 1,
 };
 const cartReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -55,6 +56,12 @@ const cartReducer = (state = initialState, action) => {
         products: state.products.filter(
           (product) => product.id !== action.payload
         ),
+      };
+
+    case CartActionTypes.CHANGE_PAGE:
+      return {
+        ...state,
+        currentPage: action.payload,
       };
 
     default:
