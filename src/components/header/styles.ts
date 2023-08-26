@@ -44,3 +44,8 @@ export const Buttons = styled.div`
     }
   }
 `;
+
+export const User = styled.div`
+  display: flex;
+  flex-direction: column;
+`;

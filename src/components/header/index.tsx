@@ -48,10 +48,13 @@ function Header() {
 
       <S.Buttons>
         {currentUser ? (
-          <div onClick={handleLogoutClick}>
+          <S.User onClick={handleLogoutClick}>
             {" "}
-            <FiLogOut /> Sair
-          </div>
+            <small>Olá, {currentUser.name}</small>
+            <small>
+              <FiLogOut /> Sair
+            </small>
+          </S.User>
         ) : (
           <div onClick={handleLoginClick}>Login</div>
         )}

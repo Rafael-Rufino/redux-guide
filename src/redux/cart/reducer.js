@@ -1,31 +1,45 @@
 import CartActionTypes from "./action-types";
 
+const saveToLocalStorage = (products) => {
+  localStorage.setItem("cart", JSON.stringify(products));
+};
+
+const loadFromLocalStorage = () => {
+  const savedProducts = localStorage.getItem("cart");
+  return savedProducts ? JSON.parse(savedProducts) : [];
+};
+
 const initialState = {
-  products: [],
+  products: loadFromLocalStorage(),
   currentPage: 1,
 };
+
 const cartReducer = (state = initialState, action) => {
   switch (action.type) {
     case CartActionTypes.ADD_PRODUCT_T0_CART:
       const productIsAlreadyInCart = state.products.some(
         (product) => product.id === action.payload.id
       );
+      const updatedProducts = productIsAlreadyInCart
+        ? state.products.map((product) =>
+            product.id === action.payload.id
+              ? { ...product, quantity: product.quantity + 1 }
+              : product
+          )
+        : [
+            ...state.products,
+            {
+              ...action.payload,
+              quantity: 1,
+            },
+          ];
+
+      saveToLocalStorage(updatedProducts);
+      console.log("colosooooodddddddddddddddd", { updatedProducts });
 
       return {
         ...state,
-        products: productIsAlreadyInCart
-          ? state.products.map((product) =>
-              product.id === action.payload.id
-                ? { ...product, quantity: product.quantity + 1 }
-                : product
-            )
-          : [
-              ...state.products,
-              {
-                ...action.payload,
-                quantity: 1,
-              },
-            ],
+        products: updatedProducts,
       };
 
     case CartActionTypes.INCREASE_PRODUCT_QUANTITY:

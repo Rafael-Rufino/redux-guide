@@ -1,10 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
-  products: [],
-  currentPage: 1,
+const saveToLocalStorage = (products) => {
+  localStorage.setItem("cart", JSON.stringify(products));
 };
 
+const loadFromLocalStorage = () => {
+  const savedProducts = localStorage.getItem("cart");
+  return savedProducts ? JSON.parse(savedProducts) : [];
+};
+const initialState = {
+  products: loadFromLocalStorage(),
+  currentPage: 1,
+};
 const cartSlice = createSlice({
   name: "cart",
   initialState,
@@ -26,6 +33,8 @@ const cartSlice = createSlice({
               quantity: 1,
             },
           ];
+
+      saveToLocalStorage(state.products);
     },
     increaseProductQuantity: (state, action) => {
       state.products = state.products.map((product) =>
@@ -47,6 +56,7 @@ const cartSlice = createSlice({
       state.products = state.products.filter(
         (product) => product.id !== action.payload
       );
+      saveToLocalStorage(state.products);
     },
     changePage: (state, action) => {
       state.currentPage = action.payload;
