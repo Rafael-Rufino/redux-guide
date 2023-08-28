@@ -78,5 +78,3 @@ Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE.md) para
 
 
 
-Mais um dia de estudos.
-Agora é React + Redux + TypeScript
