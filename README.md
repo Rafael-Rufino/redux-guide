@@ -28,7 +28,7 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias
 </h1>
 
 
-## :heavy_check_mark: :computer: Video da Aplicação Mobile
+## :heavy_check_mark: :computer: Video da Aplicação
 
 <h1 align="center">
     <img alt="Web" src="./.github/video.gif" width="900px">
