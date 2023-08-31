@@ -58,7 +58,6 @@ const CartItem = ({ product }: CartItemProps) => {
           setOpen={setIsModalOpen}
           confirmText="Confirmar"
           cancelText="Cancelar"
-          confirmationFeedback="Excluido"
           confirmationLoading
         />
 

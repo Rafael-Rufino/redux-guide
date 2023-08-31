@@ -16,7 +16,6 @@ interface ModalProps {
   cancelText?: string;
   confirmText?: string;
   confirmationLoading?: boolean;
-  confirmationFeedback?: string;
 }
 
 const ConfirmationModal = ({
